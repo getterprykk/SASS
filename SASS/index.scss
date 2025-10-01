@@ -1,0 +1,74 @@
+
+@import "default";
+
+$primary-color:lightblue;
+$primary-font: sans-serif, "cursive";
+
+body {
+    font-family:$primary-font ;
+    background:$primary-color ;
+}
+
+// Nesting
+.container {
+    width:100%;
+    height:100%;
+    nav{ 
+        ul{
+            li{
+                font-size: 1em;
+            }
+        }
+        a{
+            text-decoration: none;
+        }
+    }
+}
+
+// Partials
+
+// _partial.scss
+// @import
+
+// mixins
+
+@mixin transform_Me($prop1,$prop2){
+    width: $prop1;
+    height: $prop2;
+    background-color: yellow;
+    -ms-transform: rotate(20deg) scale(1.5);
+    -webkit-transform: rotate(20deg) scale(1.5);
+    transform: rotate(20deg) scale(1.5);
+}
+
+.transform{
+    @include transform_Me(400px,500px );
+    font-size:3em;
+    }
+
+    .transform-2{
+        @include transform_Me(200px,300px );
+    }
+
+    // extend
+    %extend-border{
+        border: 1px solid #ccc;
+        padding: 10px;
+        color: #333;
+        font-size: 1em;
+    }
+
+    %extend-new{
+        margin: 20px;
+        color: #eee
+    }
+
+    .border{
+        @extend %extend-border;
+    }
+
+    .border1{
+        @extend %extend-border;
+        margin: 20px;
+    }
+
